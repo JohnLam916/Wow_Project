@@ -1,5 +1,4 @@
 # Where we keep track of third party dependencies and libraries
-
 python-binance
 TA-lib 
 numpy

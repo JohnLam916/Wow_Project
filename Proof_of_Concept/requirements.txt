@@ -1,0 +1,5 @@
+python-binance
+flask
+flask_wtf
+backtrader
+wtforms

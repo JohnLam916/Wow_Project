@@ -1,5 +1,4 @@
 import config, csv 
-import json
 
 from binance.client import Client
 
@@ -17,12 +16,3 @@ for candlestick in candles:
     print(candlestick)
 
     candles_stick_writer.writerow(candlestick)
-'''
-prices = client.get_all_tickers()
-
-print(prices)
-
-for price in prices:
-    print(price)
-
-'''    

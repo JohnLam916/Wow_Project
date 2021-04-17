@@ -1,0 +1,25 @@
+#header{
+
+    color: rgb(49, 206, 10);
+    text-align: center;
+
+}
+
+#h2 {
+
+    color: #1a5bd4;
+    text-align: center;
+
+}
+
+#selection {
+
+    text-align: center;
+
+}
+
+.column {
+    float: right;
+    width: 29.00%;
+    padding: 20px;
+  }

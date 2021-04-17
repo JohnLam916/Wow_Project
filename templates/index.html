@@ -1,0 +1,193 @@
+<html>
+    <head> 
+        <title>Crypto World</title>
+
+    <!--retrieving data through lightweight-charts-->
+        <script src= "https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+
+    <!--retrieving style sheet from styles.css file-->
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles.css') }}">
+    </head>
+
+    <body>
+    <!--setting main title of the page and assigning it an id for css styling-->
+        <h1 id ="header">Welcome to our JTC exchange!</h1>
+        <h2 id ="h2">Where you can entrust your life savings :)</h2>
+
+<div>        
+
+    <!-- TradingView Widget for Bitcoin BEGIN -->
+    <div class="column">
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/BTCUSD/technicals/" rel="noopener" target="_blank"><span class="blue-text">Technical Analysis for BTCUSD</span></a> by JTC Students Making it rain :)</div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+            {
+            "interval": "1m",
+            "width": 425,
+            "isTransparent": false,
+            "height": 450,
+            "symbol": "BITSTAMP:BTCUSD",
+            "showIntervalTabs": true,
+            "locale": "en",
+            "colorTheme": "light"
+        }
+            </script>
+        </div>
+    </div>
+    <!-- TradingView Widget for Bitcoin END -->
+
+    <div class="row">
+        <div class="column">
+         <!-- TradingView Widget for ETHUSDT BEGIN -->
+            <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/ETHUSDT/technicals/" rel="noopener" target="_blank"><span class="blue-text">Technical Analysis for ETHUSDT</span></a> by JTC Students Making it rain ;)</div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+                {
+                "interval": "1m",
+                "width": 425,
+                "isTransparent": false,
+                "height": 450,
+                "symbol": "BINANCE:ETHUSDT",
+                "showIntervalTabs": true,
+                "locale": "en",
+                "colorTheme": "light"
+            }
+                </script>
+            </div>
+        </div>
+  <!-- TradingView Widget for ETHUSDT END -->
+
+  <!-- TradingView Widget for Litecoin BEGIN -->
+    <div class="row">
+        <div class="column">
+            <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/LTCUSDT/technicals/" rel="noopener" target="_blank"><span class="blue-text">Technical Analysis for LTCUSDT</span></a> by JTC Students Making it rain :)</div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+                {
+                "interval": "1m",
+                "width": 425,
+                "isTransparent": false,
+                "height": 450,
+                "symbol": "BINANCE:LTCUSDT",
+                "showIntervalTabs": true,
+                "locale": "en",
+                "colorTheme": "light"
+            }
+                </script>
+            </div>
+        </div>
+    </div>
+   <!-- TradingView Widget for Litecoin END -->
+</div>
+ 
+//
+        <div id = "chart"></div>
+        <div id = "trades"> </div>
+        <div id = "trader_type"></div>
+        <div id = "technical_indicator"></div>
+        <script src="{{ url_for('static', filename='chart.js') }}"> </script>
+
+    </div>        
+
+        <script>
+       // var BinanceSocket = new WebSocket("wss://stream.binance.com:9443/ws/ethusdt@trade");
+        console.log(BinanceSocket)
+
+        var tradeDiv = document.getElementById('trades')
+/*
+        BinanceSocket.onmessage = function (event) {
+            console.log(event.data);
+
+            var messageObject = JSON.parse(event.data)
+            
+            tradeDiv.append(messageObject.p)
+
+          }
+  */          
+        </script>
+        <!--prompt for user to enter their API key and API Secret-->
+        <h2 id= "h2">Please enter your API_Key and API_Secret before proceeding:</h2>
+        <div id = "selection">
+            <b>API_Key</b>: <input type="password" 
+            value="" id="typepass"> 
+        
+            <input type="checkbox" onclick="Toggle()">
+                <b>Show Password</b>
+            <br>
+            
+            <b>API_Secret</b>: <input type="password" 
+                value="" id="typepass"> 
+            
+            <input type="checkbox" onclick="Toggle()">
+            <b>Show Password</b>
+
+        </div>
+   
+        <script>
+     // Change the type of input to password or text
+         function Toggle() {
+             var temp = document.getElementById("typepass");
+             if (temp.type === "password") {
+                 temp.type = "text";
+             }
+             else {
+                 temp.type = "password";
+             }
+         }
+        </script>
+
+        <div id = "selection">
+            <h2 id="h2">Are you feeling lucky today?</h2>
+            <form>
+                Please select your style of trading:
+                <select id = "style" onchange="trading_style()">
+                    <option>Day Trading</option>
+                    <option>Swing Trading</option>
+                    <option>Risking it for the Biscuit</option>
+                    <option>Let it rain lambos!</option>
+                </select> 
+                
+                <p>Your style of trading is: <input type ="text" id= "favorite" size= "20"></p>     
+    
+            </form>  
+
+        </div>
+
+        <div id = "selection">
+            <h2 id="h2">Cryptos</h2>
+            <form>
+                Please select the currency you want to trade in:
+                <select id = "style" onchange="trading_style()">
+                    <option>Bitcoin</option>
+                    <option>Etherum</option>
+                    <option>Litecoin</option>
+                </select> 
+                
+                <p>Your choice of crypto is: <input type ="text" id= "favorite" size= "20"></p>     
+    
+            </form>  
+
+        </div>
+
+        <h2 id= "h2">User Settings</h2>
+
+        <div id = "settings"></div>
+
+        <div id = "selection">
+            <input type ="checkbox"/> RSI 
+            <input type = "text" id="rsi_length" name= "rsi_length" placeholder ="14"/>
+            Over Bought
+            <input type = "text" id="rsi_overbought" name= "rsi_overbought" placeholder ="70"/>
+            Over Sold
+            <input type = "text" id="rsi_oversold" name= "rsi_oversold" placeholder ="30"/>
+        </div>
+
+        
+
+
+    </body>
+
+</html>

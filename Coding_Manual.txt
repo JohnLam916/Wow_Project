@@ -1,0 +1,25 @@
+
+
+Flask Manual:
+
+- Passing text through flask to html webpage:
+    - To pass text, all you need to do is utilize {{ }} inside your html like this: <p> {{message}} </p>. In your flask, you would pass a parameter to your return render_template('index.html', message = "whatever you want to put here")
+
+- To write python directly into your flask html template you would have to use {% %}. Example:
+
+    {% for x in range(10 %}
+        {% if x% 2 == 1 %}
+            <p>x</p>
+        {% end if %}
+
+    {% end for%}
+
+    Whenever your using a for loop or if statement you have to end it with "endif or endfor inside"  
+
+- Template inheritance: To allow child templates to make changes on the base template you can insert {% block %} in the <title> </title> you can also give the block a name {% block content %}, then you have to end the block like how we did for loops and if statements {% block content %}{% endblock %}
+
+- Get (unsecure): A Get message is send and the server returns data
+
+- Post (most secure): Used to send HTML form data to the server. The data received by the POST method is not cached by the server (cache is a special storage space for temporary files that makes a device, browser, or app run faster and more efficiently. After opening an app or website for the first time, a cache stashes files, images, and other pertinent data on your device.) 
+
+- Styling templates: you can get styling templates for the website through bootstrap.com which provides easy to use stylish layouts 

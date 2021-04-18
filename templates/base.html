@@ -1,0 +1,78 @@
+<!-- This is our base html page which will allow our child templates to inherit functionality without having to duplicate our code in each of our child templates or pages individually. -->
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+    <title>{% block title %} {% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+
+    <!--retrieving style sheet from styles.css file-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheet.css') }}"
+
+    <!-- The code below will grab javascript packages from the boot strap site: https://getbootstrap.com/docs/5.0/components/navbar/ and allow us to implement them to style our page -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    </head>
+
+    <body>
+
+        <!-- Beginning code for our navigation bar -->
+        <nav class="navbar navbar-expand-lg", style="background-color: #e3f2fd;">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Powered by JTC Students</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dropdown
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                  </li>
+                </ul>
+                <!-- ADD SEARCH FORM HERE -->
+                <script>
+                    //GOOGLE SEARCH
+                    //Enter domain of site to search.
+                    var domainroot="http://127.0.0.1:5000/"
+                    function Gsitesearch(curobj){ curobj.q.value="site:"+domainroot+" "+curobj.qfront.value } 
+                    </script> 
+                    <form class="search navbar-form navbar-right" action="http://www.google.com/search" method="get"role="search" onSubmit="Gsitesearch(this)"> 
+                    <div class="input-group"> <input name="q" type="hidden" /> 
+                    <input class="form-control" name="qfront" type="search" required class="searchField" placeholder="JTC Search Engine" maxlength="50"/> 
+                    <span class="input-group-btn"> <button type="submit" class="search-button btn btn-primary"> <span class="glyphicon glyphicon-search"></span> </button> </span> 
+                    </div> 
+                    </form>
+              </div>
+            </div>
+          </nav>
+
+          <!-- Ending code for our navigation bar -->
+
+        {% block content %}
+        {% endblock %}
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+    </body>
+
+</html>

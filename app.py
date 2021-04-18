@@ -1,7 +1,13 @@
 from flask import Flask, render_template
 app = Flask(__name__)
 
-@app.route('/')
+if __name__ == "__main__":
+
+#   putting a parameter of debug=True in app.run() will automatically put our flask in debug mode and automatically update any changes we make to flask
+    app.run(debug=True)
+
+# the Post and GET method will allow us to retrieve information from the page
+@app.route('/', methods=["POST", "GET"])
 def login():
     return render_template('login.html')
 

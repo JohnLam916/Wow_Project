@@ -3,19 +3,19 @@
 
 {% block content %}
 
-    <div class="container">
+
+
+<!-- form for user input to log into home page -->
+     <div class="container">
       <h1 style="text-align:center; position:absolute; margin: 0; padding: 0; top: 50%; left:50%; transform: translatex(-50%)" >This Exchange is By Invitation Only</h1>
       <br>
-      <form style="text-align:center; position:absolute; margin: 0; padding: 0; top: 60%; left:50%; transform: translatex(-50%)" action="" method="post">
-        <input type="text" placeholder="Username" name="key" value="{{
-          request.form.username }}">
-         <input type="password" placeholder="Password" name="secret" value="{{
-          request.form.password }}">
+      <form style="text-align:center; position:absolute; margin: 0; padding: 0; top: 60%; left:50%; transform: translatex(-50%)" action="#" method="post">
+        <input type="text" placeholder="Username" name="key">
+        <input type="password" placeholder="Password" name="secret">
         <input class="btn btn-default" type="submit" value="Login">
       </form>
       {% if error %}
         <p class="error"><strong>Error:</strong> {{ error }}
-      {% endif %}
-    </div>
+      {% endif %} 
 
 {% endblock %}

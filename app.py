@@ -1,10 +1,5 @@
-#Validating my client key and allow me to access Binance data stream
-from binance.client import Client
-
-#Allows me to make trades
-from binance.enums import *
-
 from flask import Flask, render_template, redirect, url_for, render_template, request
+
 app = Flask(__name__)
 
 if __name__ == "__main__":
@@ -14,26 +9,21 @@ if __name__ == "__main__":
 
 # the Post and GET method will allow us to retrieve information from the page
 @app.route('/', methods=["POST", "GET"])
-
-# Utilizing request library to store information from my login form
 def login():
 
     if request.method == "POST":
-        key = request.form["key"]
-        secret = request.form["secret"]
-
-        client = Client(key, secret, tld = 'us')
-
-        account_info = client.get_account()
-
-        print(account_info)
-
-        return redirect(url_for("index"))
+        user = request.form["key"]
+        pw = request.form["secret"]
+        return redirect(url_for("user", usr=user))
 
     else: 
         return render_template("login.html")
+
+@app.route('/<usr>', methods=["POST", "GET"])
+def user(usr):
+    return f"<h1>{usr}</h1>"
     
-@app.route('/index')
+@app.route('/index', methods=["POST", "GET"])
 def index():
     return render_template('index.html')
 

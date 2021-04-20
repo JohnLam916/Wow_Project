@@ -1,5 +1,5 @@
 import binance
-import Platform_Access 
+
 
 #Validating my client key and allow me to access Binance data stream
 from binance.client import Client
@@ -9,7 +9,10 @@ from binance.enums import *
 
 #validating my API KEY 
 
-client = Client(Platform_Access.API_Key, Platform_Access.API_Secret, tld = 'us')
+api_key = "0DDVhGU4BE8UH78cn6JG5YEcQPUPXBNpeMLD8vEWxSHBhnIcFvel1AU00vlK19Ay"
+api_secret = "8a1NkHc4gd6oDrsS4wQwFd0hPF7g11AGSSZ9indrjxvhZNKBT221F4tCXF1QN4pt"
+
+client = Client(api_key, api_secret, tld = 'us')
 
 #testing whether my key is correct
 avg_price = client.get_avg_price(symbol='ETHUSDT')

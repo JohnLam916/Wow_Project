@@ -46,3 +46,9 @@ body {
     width: 29.00%;
     padding: 20px;
   }
+
+.lcolumn {
+
+    float: left;
+    font-size: 15px;
+}

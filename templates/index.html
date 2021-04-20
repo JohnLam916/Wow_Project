@@ -12,8 +12,26 @@
 
 <body>
 <!--setting main title of the page and assigning it an id for css styling-->
-    <h1 id ="header">Welcome {{user}} to our JTC exchange!</h1>
-    <h2 id ="h2">Your current balance is {{balance}}</h2>
+    <h1 id ="header">Welcome to our JTC exchange!</h1>
+    <h2 id ="h2">Your current available balance is ${{ available_to_trade }} </h2>
+
+    <div id ="my_balances">
+
+ <!-- accessing only revelant information from my binance balance and place it into a table-->
+ <div class="lcolumn">
+        <table>
+            {% for balance in my_balances %}
+            <tr>
+                <td> 
+                    {{ balance['asset'] }}
+                </td>
+                <td>
+                    {{balance['free']}}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+ </div>
 
 <div>        
 
@@ -128,6 +146,7 @@
     </div>
 
     <script>
+
  // Change the type of input to password or text
      function Toggle() {
          var temp = document.getElementById("typepass");
@@ -142,6 +161,7 @@
 
     <div id = "selection">
         <h2 id="h2">Are you feeling lucky today?</h2>
+
         <form>
             Please select your style of trading:
             <select id = "style" onchange="trading_style()">
@@ -157,21 +177,38 @@
 
     </div>
 
+
+    <!-- Creating a form for selecting crypto currencies -->
+
     <div id = "selection">
         <h2 id="h2">Cryptos</h2>
-        <form>
-            Please select the currency you want to trade in:
+
+        <form action="/buy" method="post">
+
+            Please select the Crypto you want to trade:
             <select id = "style" onchange="trading_style()">
-                <option>Bitcoin</option>
-                <option>Etherum</option>
-                <option>Litecoin</option>
+
+                        {% for symbol in symbols %}
+                        <option>{{symbol['symbol']}}</option>
+                        {% endfor %}   
             </select> 
             
-            <p>Your choice of crypto is: <input type ="text" id= "favorite" size= "20"></p>     
+            
+             <!-- Creating a form to execute a trade -->
+
+            <input type="text" id="quantity" name= "quantity" placeholder= "eg. 0.001" />
+            <input type="submit" name="buy" value="buy" />
+
+            <!-- Creating a form to execute a trade -->     
+            
 
         </form>  
 
     </div>
+
+    <!-- End of Creating a form for selecting crypto currencies -->
+
+
 
     <h2 id= "h2">User Settings</h2>
 

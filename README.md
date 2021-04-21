@@ -1,7 +1,6 @@
 # Wow_Project
-Creating a Trading Bot that will:
+Creating a user interface that will allow anyone with a Binance.us api_key and api_secret to:
 
-1. Stream real-time quotes
-2. Place enter and exit positions
-3. Manage account data (order, positions, and activity)
-4. Calculate different technical indicators
+1. Access our website
+2. Place enter and exit positions on any crypto currency that is available on Binance.us on the site
+3. Stream real-time quotes from Binance and pass it through technical indicators to show an investor when to buy or sell a particular crypto currency

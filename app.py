@@ -58,14 +58,15 @@ def logout():
     session.pop("key", None)
     return redirect(url_for("login"))
 
-@app.route('/user', methods=["POST", "GET"])
-def user():
-    return f"<h1></h1>"
-
 @app.route('/buy', methods=["POST","GET"])
 def buy():
 
 # Making a market order
+    if request.method == "POST":
+        key = request.form["key"]
+        secret = request.form["secret"]
+        client = Client(key, secret, tld = 'us') 
+
     try:
             order = client.create_order(symbol=request.form['symbol'],
             side=SIDE_BUY,

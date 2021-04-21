@@ -1,11 +1,10 @@
 from flask import Flask, render_template, redirect, url_for, render_template, request, session, flash
-import config 
 from binance.client import Client
 from binance.enums import *
 
 app = Flask(__name__)
 app.secret_key = "jsad;fk039u2401u90n3k;alkm092uqio234n92837498hwhofiuahsdf"
-client = Client(config.api_key, config.api_secret, tld = 'us')
+# client = Client(config.api_key, config.api_secret, tld = 'us')
     
 if __name__ == "__main__":
 
@@ -17,16 +16,37 @@ if __name__ == "__main__":
 @app.route('/', methods=["POST", "GET"])
 def login():
 
-    exchange_info = client.get_exchange_info()
-    info = client.get_account()
-    balances = info['balances']
-    available_to_trade = info['balances'][2]['free']
-    # total_balance = available_to_trade + 
-    print(info)
+# Grabbing user input from login page to validate client keys 
+    if request.method == "POST":
+        key = request.form["key"]
+        secret = request.form["secret"]    
 
-    symbols = exchange_info['symbols']
+# Passing user input into binance validation
+        client = Client(key, secret, tld = 'us')
 
-    return render_template('index.html', my_balances=balances, available_to_trade=available_to_trade, symbols=symbols)
+# Testing whether the key and secret were retrieved
+        # print(client, flush=True)
+        # print(key, secret, flush=True)
+
+# Retrieving client information from binance and parsing information to retrieve available balance
+        exchange_info = client.get_exchange_info()
+        info = client.get_account()
+        balances = info['balances']
+        available_to_trade = info['balances'][2]['free']
+
+# Parsing symbols from exchange info to retrieve only crypto currency symbols
+        symbols = exchange_info['symbols']
+
+# Testing that my key is validated to return my available balance to trade
+        print(available_to_trade)
+
+# Once the keys are validated user is allowed into home page
+        return render_template('index.html', my_balances=balances, available_to_trade=available_to_trade, symbols=symbols)
+
+# If the incorrect keys and secret were entered into the form, the user will not be allowed into the home page
+    else: 
+        if "key" in session:
+            return render_template("login.html")
 
 @app.route('/index', methods=["POST", "GET"])
 def index():
@@ -47,7 +67,7 @@ def buy():
 
 # Making a market order
     try:
-            order = client.create_order( symbol=request.form['symbol'],
+            order = client.create_order(symbol=request.form['symbol'],
             side=SIDE_BUY,
             type=ORDER_TYPE_MARKET,
             quantity= request.form['quantity'])

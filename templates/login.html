@@ -3,13 +3,13 @@
 
 {% block content %}
 
-<!-- form for user input to log into home page -->
+<!-- form to validate user api client key -->
      <div class="container">
       <h1 style="text-align:center; position:absolute; margin: 0; padding: 0; top: 50%; left:50%; transform: translatex(-50%)" >This Exchange is By Invitation Only</h1>
       <br>
       <form style="text-align:center; position:absolute; margin: 0; padding: 0; top: 60%; left:50%; transform: translatex(-50%)" action="#" method="post">
-        <input type="text" placeholder="API_Key" name="key">
-        <input type="" placeholder="API_Secret" name="secret">
+        <input type="text" placeholder="API_Key" name="key" id="key">
+        <input type="" placeholder="API_Secret" name="secret" id ="secret">
         <input class="btn btn-default" type="submit" value="Login">
       </form>
       {% if error %}

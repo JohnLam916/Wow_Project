@@ -186,6 +186,14 @@
         <form action="/buy" method="post">
 
             Please select the Crypto you want to trade:
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        {{ message }}
+                     {% endfor %}
+                {% endif %}
+                {% endwith %}
+
             <select id = "style" onchange="trading_style()">
 
                         {% for symbol in symbols %}

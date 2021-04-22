@@ -19,7 +19,9 @@ def login():
 # Grabbing user input from login page to validate client keys 
     if request.method == "POST":
         key = request.form["key"]
-        secret = request.form["secret"]    
+        session["key"] = key
+        secret = request.form["secret"]
+        session["secret"] = secret    
 
 # Passing user input into binance validation
         client = Client(key, secret, tld = 'us')
@@ -37,11 +39,16 @@ def login():
 # Parsing symbols from exchange info to retrieve only crypto currency symbols
         symbols = exchange_info['symbols']
 
+        prices = client.get_all_tickers()
+        current_prices = prices[0]['price']
+
+        print(current_prices)
+
 # Testing that my key is validated to return my available balance to trade
         print(available_to_trade)
 
 # Once the keys are validated user is allowed into home page
-        return render_template('index.html', my_balances=balances, available_to_trade=available_to_trade, symbols=symbols)
+        return render_template('index.html', my_balances=balances, available_to_trade=available_to_trade, prices=prices, symbols=symbols)
 
 # If the incorrect keys and secret were entered into the form, the user will not be allowed into the home page
     else: 
@@ -60,26 +67,39 @@ def logout():
 
 @app.route('/buy', methods=["POST","GET"])
 def buy():
+    
+        try:
+                # Utilizing session to make key accessible to the buy route, to enable user to make a trade via binance
+                key = session["key"]
+                secret = session["secret"]
+                client = Client(key, secret, tld = 'us')
 
-# Making a market order
-    if request.method == "POST":
-        key = request.form["key"]
-        secret = request.form["secret"]
-        client = Client(key, secret, tld = 'us') 
+                # Function to make an trade 
+                order = client.create_order(symbol=request.form['symbol'],
+                side=SIDE_BUY,
+                type=ORDER_TYPE_MARKET,
+                quantity= request.form['quantity'])
+        
+        except Exception as e:
+                flash(e.message, "error")
 
-    try:
-            order = client.create_order(symbol=request.form['symbol'],
-            side=SIDE_BUY,
-            type=ORDER_TYPE_MARKET,
-            quantity= request.form['quantity'])
-    except Exception as e:
-            flash(e.message, "error")
+        return redirect('/index')
 
-    return redirect(url_for('index'))
-
-@app.route('/sell')
+@app.route('/sell', methods=["POST","GET"])
 def sell():
-    return 'sell'
+
+        # Utilizing session to make key accessible to the sell route, to enable user to make a trade via binance
+        key = session["key"]
+        secret = session["secret"]
+        client = Client(key, secret, tld = 'us')
+
+        # Function to make an trade 
+        order = client.create_order(symbol=request.form['symbol'],
+        side=SIDE_BUY,
+        type=ORDER_TYPE_MARKET,
+        quantity= request.form['quantity'])
+
+        print(request.form)
 
 @app.route('/settings')
 def settings():

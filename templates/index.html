@@ -17,24 +17,6 @@
 
     <div id ="my_balances">
 
- <!-- accessing only revelant information from my binance balance and place it into a table-->
- <div class="lcolumn">
-        <table>
-            {% for balance in my_balances %}
-            <tr>
-                <td> 
-                    {{ balance['asset'] }}
-                </td>
-                <td>
-                    {{balance['free']}}
-                </td>
-            </tr>
-            {% endfor %}
-        </table>
- </div>
-
-<div>        
-
 <!-- TradingView Widget for Bitcoin BEGIN -->
 <div class="column">
     <div class="tradingview-widget-container">
@@ -126,26 +108,6 @@
 
       }
 */          
-    </script>
-    <!--prompt for user to enter their API key and API Secret-->
-    <h2 id= "h2">Please enter your API_Key and API_Secret before proceeding:</h2>
-    <div id = "selection">
-        <b>API_Key</b>: <input type="password" 
-        value="" id="typepass"> 
-    
-        <input type="checkbox" onclick="Toggle()">
-            <b>Show Password</b>
-        <br>
-        
-        <b>API_Secret</b>: <input type="password" 
-            value="" id="typepass"> 
-        
-        <input type="checkbox" onclick="Toggle()">
-        <b>Show Password</b>
-
-    </div>
-
-    <script>
 
  // Change the type of input to password or text
      function Toggle() {
@@ -178,14 +140,14 @@
     </div>
 
 
-    <!-- Creating a form for selecting crypto currencies -->
+    <!-- Creating a form for selecting crypto currencies to purchase -->
 
     <div id = "selection">
         <h2 id="h2">Cryptos</h2>
 
         <form action="/buy" method="post">
 
-            Please select the Crypto you want to trade:
+            Please select the Crypto you want to purchase:
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
                     {% for message in messages %}
@@ -194,29 +156,61 @@
                 {% endif %}
                 {% endwith %}
 
-            <select id = "style" onchange="trading_style()">
+            <select id = "symbol" name="symbol">
 
-                        {% for symbol in symbols %}
-                        <option>{{symbol['symbol']}}</option>
-                        {% endfor %}   
+                {% for symbol in symbols %}
+                     <option>{{symbol['symbol']}}</option>
+                {% endfor %}   
             </select> 
             
-            
-             <!-- Creating a form to execute a trade -->
+             <!-- Creating a form to execute a purchase trade -->
 
             <input type="text" id="quantity" name= "quantity" placeholder= "eg. 0.001" />
             <input type="submit" name="buy" value="buy" />
 
-            <!-- Creating a form to execute a trade -->     
-            
+            <!-- Creating a form to execute a purchase trade -->     
 
         </form>  
 
     </div>
 
-    <!-- End of Creating a form for selecting crypto currencies -->
+    <!-- End of creating a form for selecting crypto currencies to purchase -->
 
+    <!-- Creating a form for selecting crypto currencies to sell -->
 
+    <div id = "selection"></div>
+
+        <form action="/sell" method="post">
+
+            Please select the Crypto you want to Sell:
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        {{ message }}
+                     {% endfor %}
+                {% endif %}
+                {% endwith %}
+
+            <select id = "symbol" name="symbol">
+
+                {% for symbol in symbols %}
+                     <option>{{symbol['symbol']}}</option>
+                {% endfor %}  
+
+            </select> 
+            
+             <!-- Creating a form to execute a purchase trade -->
+
+            <input type="text" id="quantity" name= "quantity" placeholder= "eg. 0.001" />
+            <input type="submit" name="sell" value="sell" />
+
+            <!-- Creating a form to execute a purchase trade -->     
+
+        </form>  
+
+    </div>
+
+    <!-- End of creating a form for selecting crypto currencies to purchase -->
 
     <h2 id= "h2">User Settings</h2>
 
@@ -230,5 +224,36 @@
         Over Sold
         <input type = "text" id="rsi_oversold" name= "rsi_oversold" placeholder ="30"/>
     </div>
+
+ <!-- accessing only revelant information from my binance balance and place it into a table-->
+ <div class="lcolumn">
+    <table>
+        {% for balance in my_balances %}
+        <tr>
+            <td> 
+                {{ balance['asset'] }}
+            </td>
+            <td>
+                {{balance['free']}}
+            </td>
+        
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<table>
+{% for price in prices %}
+<tr>
+    <td>
+        {{ price['price']}}
+    </td>
+</tr>
+{% endfor %}
+</table>
+
+<div>        
+
+<!-- End of accessing only revelant information from my binance balance and place it into a table-->
 
     {% endblock %}

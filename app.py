@@ -41,11 +41,16 @@ def login():
 
         prices = client.get_all_tickers()
         current_prices = prices[0]['price']
+        
+        session["available_to_trade"] = available_to_trade
+        session["balances"] = balances
+        session["prices"] = prices
+        session["symbols"] = symbols
 
         print(current_prices)
 
 # Testing that my key is validated to return my available balance to trade
-        print(available_to_trade)
+        print(session["balances"])
 
 # Once the keys are validated user is allowed into home page
         return render_template('index.html', my_balances=balances, available_to_trade=available_to_trade, prices=prices, symbols=symbols)
@@ -66,39 +71,67 @@ def logout():
 
 @app.route('/buy', methods=["POST","GET"])
 def buy():
-    
-        try:
-                # Utilizing session to make key accessible to the buy route, to enable user to make a trade via binance
-                key = session["key"]
-                secret = session["secret"]
-                client = Client(key, secret, tld = 'us')
+        if request.method == "POST":
+                try:
+                
+                        # Utilizing session to make key accessible to the buy route, to enable user to make a trade via binance
+                        key = session["key"]
+                        secret = session["secret"]
+                        client = Client(key, secret, tld = 'us')
+                        
+                        # Function to make an trade 
+                        order = client.create_order(symbol=request.form['symbol'],
+                        side=SIDE_BUY,
+                        type=ORDER_TYPE_MARKET,
+                        quantity= float(request.form['quantity']))
 
-                # Function to make an trade 
-                order = client.create_order(symbol=request.form['symbol'],
-                side=SIDE_BUY,
-                type=ORDER_TYPE_MARKET,
-                quantity= float(request.form['quantity']))
+                        exchange_info = client.get_exchange_info()
+                        info = client.get_account()
+                        balances = info['balances']
+                        available_to_trade = info['balances'][2]['free']
+
+                        symbols = exchange_info['symbols']
+                        prices = client.get_all_tickers()
+
+
+                
+                except Exception as e:
+                        flash(e.message, "error")
+
+                return render_template('index.html', my_balances=balances, available_to_trade=available_to_trade, prices=prices, symbols=symbols)     
+        else: 
+                return render_template("login.html")  
         
-        except Exception as e:
-                flash(e.message, "error")
-
-        return redirect('/index')
 
 @app.route('/sell', methods=["POST","GET"])
 def sell():
+        if request.method == "POST":
+                # Utilizing session to make key accessible to the sell route, to enable user to make a trade via binance
+                key = session["key"]
+                secret = session["secret"]
+                client = Client(key, secret, tld = 'us')
+                
+                # Function to make an trade 
+                order = client.create_order(symbol=request.form['symbol'],
+                side=SIDE_SELL,
+                type=ORDER_TYPE_MARKET,
+                quantity= float(request.form['quantity']))
 
-        # Utilizing session to make key accessible to the sell route, to enable user to make a trade via binance
-        key = session["key"]
-        secret = session["secret"]
-        client = Client(key, secret, tld = 'us')
+                exchange_info = client.get_exchange_info()
+                info = client.get_account()
+                
+                balances = info['balances']
+                available_to_trade = info['balances'][2]['free']
+                symbols = exchange_info['symbols']
 
-        # Function to make an trade 
-        order = client.create_order(symbol=request.form['symbol'],
-        side=SIDE_SELL,
-        type=ORDER_TYPE_MARKET,
-        quantity= float(request.form['quantity']))
+                prices = client.get_all_tickers()
 
-        print(request.form)
+                print(request.form)
+
+                return render_template('index.html', my_balances=balances, available_to_trade=available_to_trade, prices=prices, symbols=symbols)       
+
+        else: 
+                return render_template("login.html")  
 
 @app.route('/settings')
 def settings():

@@ -52,8 +52,7 @@ def login():
 
 # If the incorrect keys and secret were entered into the form, the user will not be allowed into the home page
     else: 
-        if "key" in session:
-            return render_template("login.html")
+        return render_template("login.html")
 
 @app.route('/index', methods=["POST", "GET"])
 def index():
@@ -78,7 +77,7 @@ def buy():
                 order = client.create_order(symbol=request.form['symbol'],
                 side=SIDE_BUY,
                 type=ORDER_TYPE_MARKET,
-                quantity= request.form['quantity'])
+                quantity= float(request.form['quantity']))
         
         except Exception as e:
                 flash(e.message, "error")
@@ -95,9 +94,9 @@ def sell():
 
         # Function to make an trade 
         order = client.create_order(symbol=request.form['symbol'],
-        side=SIDE_BUY,
+        side=SIDE_SELL,
         type=ORDER_TYPE_MARKET,
-        quantity= request.form['quantity'])
+        quantity= float(request.form['quantity']))
 
         print(request.form)
 

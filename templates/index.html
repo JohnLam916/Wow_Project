@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<!--retrieving data through lightweight-charts-->
+<!--retrieving data through lightweight-charts, which handles the technical indicators that are displayed on the website that allows a user to adjust the time dial which analyzes data from 1 minute to one month, and tells an investor when to buy and sell a particular crypto-->
 <script src= "https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
 
 <!--retrieving style sheet from styles.css file-->
@@ -82,8 +82,10 @@
     </div>
 </div>
 <!-- TradingView Widget for Litecoin END -->
-</div>
 
+<!-- Charts for later development that retrieves candle stick charts, this will be later used by python-binance websocket to retrieve data from binance API that can be processed through charts -->
+
+<!-- </div>
 
     <div id = "chart"></div>
     <div id = "trades"> </div>
@@ -91,9 +93,10 @@
     <div id = "technical_indicator"></div>
     <script src="{{ url_for('static', filename='chart.js') }}"> </script>
 
-</div>        
+</div>         -->
 
     <script>
+
    // var BinanceSocket = new WebSocket("wss://stream.binance.com:9443/ws/ethusdt@trade");
     console.log(BinanceSocket)
 
@@ -105,7 +108,6 @@
         var messageObject = JSON.parse(event.data)
         
         tradeDiv.append(messageObject.p)
-
       }
 */          
 
@@ -138,7 +140,6 @@
         </form>  
 
     </div>
-
 
     <!-- Creating a form for selecting crypto currencies to purchase -->
 
@@ -183,6 +184,9 @@
         <form action="/sell" method="post">
 
             Please select the Crypto you want to Sell:
+
+    <!-- displays error message on the user interface, when an execution fails for one reason or another -->
+
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
                     {% for message in messages %}
@@ -203,8 +207,6 @@
 
             <input type="text" id="quantity" name= "quantity" placeholder= "eg. 0.001" />
             <input type="submit" name="sell" value="sell" />
-
-            <!-- Creating a form to execute a purchase trade -->     
 
         </form>  
 

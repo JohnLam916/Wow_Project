@@ -47,10 +47,9 @@ def login():
         session["prices"] = prices
         session["symbols"] = symbols
 
-        print(current_prices)
-
 # Testing that my key is validated to return my available balance to trade
-        print(session["balances"])
+        # print(session["balances"])
+        # print(current_prices)
 
 # Once the keys are validated user is allowed into home page
         return render_template('index.html', my_balances=balances, available_to_trade=available_to_trade, prices=prices, symbols=symbols)
@@ -140,7 +139,9 @@ def sell():
 
                 # Displays the current prices of the Crypto currencys
                 prices = client.get_all_tickers()
-                print(request.form)
+
+                # Test to see if this route is functioning properly
+                # print(request.form)
 
                 # Once the order executes, the page refreshes and updates the available balance to trade, current holdings, and prices of crypto currencies
                 return render_template('index.html', my_balances=balances, available_to_trade=available_to_trade, prices=prices, symbols=symbols)       

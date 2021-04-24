@@ -46,6 +46,14 @@ Once a user has a API Key and Secret they can go to our site to access our tools
  
 13. Our technical ossicilator will allow users to select duration analysis by the minute up to a month. 
 
+14. Once you have selected the crypto currency you are interested in and have imbibed the information given to you about whether to sell or buy the crypto currency in the next few moments, you can scroll down our site where you will be greeted by a buy or sell form.
+
+15. On the form you are given the option to select any of the crypto currencies that are available to be traded on Binance.us. You are then to enter in a quantity, once you are satisfied, you can press the buy or sell button. 
+
+16. In the event, where you entered in the wrong amount for the quantity either above your current available balance to trade, or too small a quantity, you will not be allowed to execute a trade and an error will be displayed on your terminal explaining to you why you can't execute a trade and how to enter in a correct trade. 
+
+17. If you have entered in a correct trade, the page will refresh and show you your current holdings and your current available balance. 
+
 **Next Upgrades**
 
 1. Automate the mechanical trading to a fully self functioning bot that takes user parameters on how to trade and "is user friendly"

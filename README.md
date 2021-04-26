@@ -1,13 +1,69 @@
 # Wow_Project
-Creating a user interface that will allow anyone with a Binance.us api_key and api_secret to:
 
-1. Access our website
-2. Place enter and exit positions on any crypto currency that is available on Binance.us
-3. Stream real-time quotes from Binance and pass it through technical indicators to show an investor when to buy or sell a particular crypto currency
+**Project synopsis**
 
-For this project we used the following libraries:
+One of the most difficult things for any investors whether they are novices or professionals is knowing when to buy or sell a particular security. Herein lies our solution to this 200 year conundrum that has persisted since the founding of the New York Stock Exchange in 1792. Today, we have created a user friendly tool that will inform an investor when to buy or sell a particular crypto currency in plain English - later version will include a google translater which will make our tool readily accessible to anyone around the world.
+
+The mission of democratizing investment is the heart of our project which is why we have decided to focus on crypto currency. Crypto currency has a few benefits that lends itself well for later project scalability, but importantly it has a low bar for frequent trading or what is known as "daily trading". With traditional stocks on the New York Stock Exchange or the Nasdaq, you would need to meet the minium of having $25,000 in your trading account before you are allowed to become a day trader, one who buys and sells more than three securities in the same day within a five day period. If you were to attempt to be a day trader with less than $25,000, you would be locked out of your account for up to 3 months. However, with crypto currency you can trade as frequently as you like, with as much or little money as you want. As an added bonus you can do it 24/7 unlike stocks which opens 9am EST and closes 4pm EST and operates Monday - Friday, crypto exchanges also don't reccognize holidays, so you can make green gravy even on thanksgiving. 
+
+For all the above reasons, we chose to focus on crypto currencies over stocks. Along that line, we selected Binance.us as a platform because the site has the highest volume of trades for crypto currency. This is key as we will want to scale this project to automation later, and higher the volume activity allows quicker execution of trades. As the adage goes, "without a buyer, you can't sell Jack" - a wise person said this, I think his name was John.
+
+Furthermore, All a user will have do to utilize our site is to create a Binance.us api_key and api_secret by opening an account through binance.us which takes about 5 minutes. For further guidance on how to create a binance account watch this short video: https://www.youtube.com/watch?v=hYSdULDAmbc. Once a binance account is created, a person will need to create an API KEY and Secret, which takes less than 5 minutes. Watch a 2 minute video on how to create API Key: https://www.youtube.com/watch?v=FPUHU7THD64
+
+Once a user has a API Key and Secret they can go to our site to access our tools. 
+
+**Libraries that needs to be installed**
 
 1. Binance
 2. Flask
-3. Flask_WTF
-4. Boot strap
+3. Boot strap
+
+**Below are the following steps to run/use our website:** 
+
+1. Download our repository
+
+2. Clone it to a folder on your computer
+
+3. Use your chosen IDE to open the folder
+
+4. Open your terminal, make sure you are in the correct folder and install the following libraries: Binance, Flask, Boot strap
+
+5. Once the proper libraries are installed, and you are in the proper folder, on your terminal type in: flask run
+
+6. When this happens, a link should appear that looks like this: http://127.0.0.1:5000/ 
+
+7. Copy and paste that link into your preferred browser
+
+8. Once that is completed a white page will be rendered that says: This Exchange is By Invitation Only, below which you are asked to enter in your API_key and API_Secret
+
+9. If you enter a non-valid key and secret or attempt to press login without giving proper credentials, you will not be allowed to move pass the login page
+
+10. If you entered in valid key and secret you will be redirected to the home page where you will be greeted with your current available to trade balance, your current crypto holdings, technical indicators at work, and a area where you can execute buy and sell orders through binance.us.
+
+11. One of the key feature of our website is that it will stream live data from Binance that are processed through technical indicators that will let an investor know when to buy or sell a particular crypto currency based on a particular time frame a user selects
+
+12. The technical indicators will allow investors the ability to select timeframes they want analyzed which makes it a more useful tool to a broader audience of investors. For example, day traders maybe more interested in the minute or hourly fluctuation of a particular security, while a swing trader are more concerned with the daily or weekly fluctuations.
+ 
+13. Our technical ossicilator will allow users to select duration analysis by the minute up to a month. 
+
+14. Once you have selected the crypto currency you are interested in and have imbibed the information given to you about whether to sell or buy the crypto currency in the next few moments, you can scroll down our site where you will be greeted by a buy or sell form.
+
+15. On the form you are given the option to select any of the crypto currencies that are available to be traded on Binance.us. You are then to enter in a quantity, once you are satisfied, you can press the buy or sell button. 
+
+16. In the event, where you entered in the wrong amount for the quantity either above your current available balance to trade, or too small a quantity, you will not be allowed to execute a trade and an error will be displayed on your terminal explaining to you why you can't execute a trade and how to enter in a correct trade. 
+
+17. If you have entered in a correct trade, the page will refresh and show you your current holdings and your current available balance. 
+
+**Next Upgrades**
+
+1. Automate the mechanical trading to a fully self functioning bot that takes user parameters on how to trade and "is user friendly"
+2. Along with the bot, we will make a fully functional webpage that will provide investors with resources on best practices on how to use the bot.
+3. Allow users to back trade on historical data to test out how the bot will perform with settings to help investors fine tune their investment strategy
+4. A key tool we will implement in the next phase of the development will include a technical indicator called the Relative Strength Index which will accept user input to adjust the RSI feedback to the bot on how to trade. A more risk prone investor can make a few simple adjustments that will make the bot trade more aggressively, while a more conservative investor can make a few simple adjustments and make the bot trade more conservatively.
+
+
+
+
+
+
+

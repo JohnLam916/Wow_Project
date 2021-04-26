@@ -21,7 +21,7 @@ class FlaskTestCase(unittest.TestCase):
         response = tester.get('/', follow_redirects=True)
         self.assertIn(b'This Exchange is By Invitation Only', response.data)
 
-    #test login inccorect login
+    #test incorrect login credentials
     def test_incorrect_login_page(self):
         tester = app.test_client(self)
         response = tester.post(
@@ -43,5 +43,5 @@ class FlaskTestCase(unittest.TestCase):
     
 
 if __name__ == '__main__':
-    unittest.__main__()  
+    unittest.__main__()
     

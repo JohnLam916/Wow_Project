@@ -1,36 +1,14 @@
-body {
-    background: #eee
-}
-
-.news {
-    width: 160px
-}
-
-.news-scroll a {
-    text-decoration: none
-}
-
-.dot {
-    height: 6px;
-    width: 4px;
-    margin-left: 3px;
-    margin-right: 3px;
-    margin-top: 2px !important;
-    background-color: rgb(207, 23, 23);
-    border-radius: 50%;
-    display: inline-block
-}
-
 #header{
 
     color: rgb(49, 206, 10);
     text-align: center;
+    padding-top: 50px;
 
 }
 
 #h2 {
 
-    color: #1a5bd4;
+    color: #d41a1a;
     text-align: center;
 
 }
@@ -41,15 +19,3 @@ body {
 
 }
 
-.column {
-    float: right;
-    width: 300px;
-    height: 300 px;
-    padding: 20px;
-  }
-
-.lcolumn {
-
-    float: left;
-    font-size: 15px;
-}

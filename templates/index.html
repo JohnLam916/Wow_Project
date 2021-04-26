@@ -8,39 +8,46 @@
 
 <!--retrieving style sheet from styles.css file-->
 <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles.css') }}">
+
 </head>
 
 <body>
+
 <!--setting main title of the page and assigning it an id for css styling-->
-    <h1 id ="header">Welcome to our JTC exchange!</h1>
-    <h2 id ="h2">Your current available balance is ${{ available_to_trade }} </h2>
 
-    <div id ="my_balances">
+    <h1 style = "color:	#0000CD; text-align: center; padding-top: 50px">Welcome to our JTC exchange!</h1>
+  
+<!-- image under headers -->
 
-<!-- TradingView Widget for Bitcoin BEGIN -->
-<div class="column">
-    <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/BTCUSD/technicals/" rel="noopener" target="_blank"><span class="blue-text">Technical Analysis for BTCUSD</span></a> by JTC Students Making it rain :)</div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
-        {
-        "interval": "1m",
-        "width": 425,
-        "isTransparent": false,
-        "height": 450,
-        "symbol": "BITSTAMP:BTCUSD",
-        "showIntervalTabs": true,
-        "locale": "en",
-        "colorTheme": "light"
-    }
-        </script>
-    </div>
+<div style="display: block; margin-left: auto; margin-right:auto; width: 80%; margin-top:50px; margin-bottom: 50px">
+<img src="https://images.unsplash.com/photo-1615818733733-8b2f0e3c403a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80" class="img-fluid" alt="Image of success">
 </div>
-<!-- TradingView Widget for Bitcoin END -->
 
-<div class="row">
-    <div class="column">
-     <!-- TradingView Widget for ETHUSDT BEGIN -->
+<div style="content: ''; display: table; margin-left: auto; margin-right: auto; padding-bottom: 50px">
+
+    <div style= "float: left; width: 33.33%;">
+    <!-- TradingView Widget for Bitcoin BEGIN -->
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/BTCUSD/technicals/" rel="noopener" target="_blank"><span class="blue-text">Technical Analysis for BTCUSD</span></a> by JTC Students Making it rain :)</div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+            {
+            "interval": "1m",
+            "width": 425,
+            "isTransparent": false,
+            "height": 450,
+            "symbol": "BITSTAMP:BTCUSD",
+            "showIntervalTabs": true,
+            "locale": "en",
+            "colorTheme": "light"
+        }
+            </script>
+        </div>
+    <!-- TradingView Widget for Bitcoin END -->
+    </div>
+
+    <div style= "float: left; width: 33.33%;">
+        <!-- TradingView Widget for ETHUSDT BEGIN -->
         <div class="tradingview-widget-container">
             <div class="tradingview-widget-container__widget"></div>
             <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/ETHUSDT/technicals/" rel="noopener" target="_blank"><span class="blue-text">Technical Analysis for ETHUSDT</span></a> by JTC Students Making it rain ;)</div>
@@ -57,12 +64,11 @@
         }
             </script>
         </div>
+        <!-- TradingView Widget for ETHUSDT END -->
     </div>
-<!-- TradingView Widget for ETHUSDT END -->
 
-<!-- TradingView Widget for Litecoin BEGIN -->
-<div class="row">
-    <div class="column">
+    <div style= "float: left; width: 33.33%;">
+        <!-- TradingView Widget for Litecoin BEGIN -->
         <div class="tradingview-widget-container">
             <div class="tradingview-widget-container__widget"></div>
             <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/LTCUSDT/technicals/" rel="noopener" target="_blank"><span class="blue-text">Technical Analysis for LTCUSDT</span></a> by JTC Students Making it rain :)</div>
@@ -79,9 +85,9 @@
         }
             </script>
         </div>
+        <!-- TradingView Widget for Litecoin END -->
     </div>
 </div>
-<!-- TradingView Widget for Litecoin END -->
 
 <!-- Charts for later development that retrieves candle stick charts, this will be later used by python-binance websocket to retrieve data from binance API that can be processed through charts -->
 
@@ -98,9 +104,9 @@
     <script>
 
    // var BinanceSocket = new WebSocket("wss://stream.binance.com:9443/ws/ethusdt@trade");
-    console.log(BinanceSocket)
+   // console.log(BinanceSocket)
 
-    var tradeDiv = document.getElementById('trades')
+   // var tradeDiv = document.getElementById('trades')
 /*
     BinanceSocket.onmessage = function (event) {
         console.log(event.data);
@@ -112,18 +118,20 @@
 */          
 
  // Change the type of input to password or text
-     function Toggle() {
-         var temp = document.getElementById("typepass");
-         if (temp.type === "password") {
-             temp.type = "text";
-         }
-         else {
-             temp.type = "password";
-         }
-     }
-    </script>
+ //    function Toggle() {
+ //        var temp = document.getElementById("typepass");
+ //        if (temp.type === "password") {
+ //            temp.type = "text";
+ //        }
+ //        else {
+ //            temp.type = "password";
+ //        }
+ //    }
+     </script>  
 
-    <div id = "selection">
+     <!-- The form below will be later added to the updated version that will be included in the automation, giving the user the ability to select the trading style they want for their bot -->
+
+     <!-- <div id = "selection">
         <h2 id="h2">Are you feeling lucky today?</h2>
 
         <form>
@@ -139,12 +147,18 @@
 
         </form>  
 
-    </div>
+    </div> -->
+
+<div>
+    <h2 style = "color: #d41a1a; text-align: center;">Your current available balance is ${{ available_to_trade }} </h2>
+</div>
 
     <!-- Creating a form for selecting crypto currencies to purchase -->
 
+<div style="content: ''; display: table; margin-left: auto; margin-right: auto; padding-bottom: 25px; padding-top: 25px; border-style: double; width: 800px;  ">
+        
     <div id = "selection">
-        <h2 id="h2">Cryptos</h2>
+        <h2 id="h2">Buy and Sell your Crypto's Here</h2>
 
         <form action="/buy" method="post">
 
@@ -153,18 +167,18 @@
                 {% if messages %}
                     {% for message in messages %}
                         {{ message }}
-                     {% endfor %}
+                        {% endfor %}
                 {% endif %}
                 {% endwith %}
 
             <select id = "symbol" name="symbol">
 
                 {% for symbol in symbols %}
-                     <option>{{symbol['symbol']}}</option>
+                        <option>{{symbol['symbol']}}</option>
                 {% endfor %}   
             </select> 
             
-             <!-- Creating a form to execute a purchase trade -->
+                <!-- Creating a form to execute a purchase trade -->
 
             <input type="text" id="quantity" name= "quantity" placeholder= "eg. 0.001" />
             <input type="submit" name="buy" value="buy" />
@@ -175,11 +189,11 @@
 
     </div>
 
-    <!-- End of creating a form for selecting crypto currencies to purchase -->
+        <!-- End of creating a form for selecting crypto currencies to purchase -->
 
-    <!-- Creating a form for selecting crypto currencies to sell -->
+        <!-- Creating a form for selecting crypto currencies to sell -->
 
-    <div id = "selection"></div>
+    <div id = "selection">
 
         <form action="/sell" method="post">
 
@@ -191,19 +205,19 @@
                 {% if messages %}
                     {% for message in messages %}
                         {{ message }}
-                     {% endfor %}
+                        {% endfor %}
                 {% endif %}
                 {% endwith %}
 
             <select id = "symbol" name="symbol">
 
                 {% for symbol in symbols %}
-                     <option>{{symbol['symbol']}}</option>
+                        <option>{{symbol['symbol']}}</option>
                 {% endfor %}  
 
             </select> 
             
-             <!-- Creating a form to execute a purchase trade -->
+                <!-- Creating a form to execute a sell -->
 
             <input type="text" id="quantity" name= "quantity" placeholder= "eg. 0.001" />
             <input type="submit" name="sell" value="sell" />
@@ -212,7 +226,9 @@
 
     </div>
 
-    <!-- End of creating a form for selecting crypto currencies to purchase -->
+        <!-- End of creating a form for selecting crypto currencies to purchase -->
+
+</div>
 
     <!-- Form to allow user to set parameters for technial indicator Relative Strength Index, which gives information to the bot to execute a trade based on the parameters -->
     
@@ -232,9 +248,10 @@
  <!-- accessing only revelant information from my binance balance and place it into a table-->
  <div class="lcolumn">
     <table>
+        <p style= "padding-left: 10px;">Symbols | Current Holdings</p>
         {% for balance in my_balances %}
         <tr>
-            <td> 
+            <td style = "padding: 20px;"> 
                 {{ balance['asset'] }}
             </td>
             <td>
@@ -246,8 +263,9 @@
     </table>
 </div>
 
-<table>
+<!-- <table>
 {% for price in prices %}
+
 <tr>
     <td>
         {{ price['price']}}
@@ -256,7 +274,7 @@
 {% endfor %}
 </table>
 
-<div>        
+<div>         -->
 
 <!-- End of accessing only revelant information from my binance balance and place it into a table-->
 

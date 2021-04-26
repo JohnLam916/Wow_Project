@@ -12,7 +12,7 @@ Furthermore, All a user will have do to utilize our site is to create a Binance.
 
 Once a user has a API Key and Secret they can go to our site to access our tools. 
 
-**Libraries that needs to be installed**
+**Libraries that needs to be installed:**
 
 1. Binance
 2. Flask

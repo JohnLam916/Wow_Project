@@ -38,4 +38,4 @@ Open an account with binance.us which takes about 5 minutes. For more inforamtio
 
 10. Once you are ready to execute a trade you can go to our trade form and select a crypto to buy or sell and quanity you want executed.
 
-If you correctly followed the steps above, you have just executed a trade. May your investment journey be a fruitful!
+If you correctly followed the steps above, you have just executed a trade. May your investment journey be fruitful!

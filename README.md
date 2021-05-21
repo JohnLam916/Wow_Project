@@ -14,7 +14,6 @@ Open an account with binance.us which takes about 5 minutes. For more inforamtio
 
 1. Binance: pip install python-binance
 2. Flask: pip install Flask
-3. Boot strap
 
 **Below are the following steps to run/use our website:** 
 

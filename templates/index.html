@@ -15,7 +15,7 @@
 
 <!--setting main title of the page and assigning it an id for css styling-->
 
-    <h1 style = "color:	#0000CD; text-align: center; padding-top: 50px">Welcome to our JTC exchange!</h1>
+<h1 style = "color:	#0000CD; text-align: center; padding-top: 50px">Welcome to our JTC exchange!</h1>
   
 <!-- image under headers -->
 
@@ -191,6 +191,36 @@
 
         <!-- End of creating a form for selecting crypto currencies to purchase -->
 
+<br>
+
+<p style="color: rgb(10, 110, 40); text-align:center"> <b><em>*Please note that there is minimum purchase of $20 to execute a trade*</em></b> </p>
+
+<script>
+
+    function myCryptoCost()
+    {
+        var a=document.getElementById('number').value;
+        var b=document.getElementById('numbers').value;
+        document.getElementById('result').innerHTML=(a*b);
+    }
+
+</script>
+
+<div style="text-align: center;">
+    <form name="Crypto Calculator">
+        
+        Price of Crypto: <input type ="number" value= " " id ="number">
+        Quantity: <input type ="number" value= " " id="numbers">
+        <br>
+        <br>
+        <input type = "submit" value= "multiply" onclick ="return myCryptoCost()">
+        <b>The cost of the crypto is:</b>
+        <span id ="result"></span>
+
+    </form>
+</div>
+<br>
+
         <!-- Creating a form for selecting crypto currencies to sell -->
 
     <div id = "selection">
@@ -216,7 +246,7 @@
                 {% endfor %}  
 
             </select> 
-            
+
                 <!-- Creating a form to execute a sell -->
 
             <input type="text" id="quantity" name= "quantity" placeholder= "eg. 0.001" />
@@ -230,6 +260,8 @@
 
 </div>
 
+<br>
+<br>
     <!-- Form to allow user to set parameters for technial indicator Relative Strength Index, which gives information to the bot to execute a trade based on the parameters -->
     
     <!-- <h2 id= "h2">User Settings</h2>
@@ -245,8 +277,64 @@
         <input type = "text" id="rsi_oversold" name= "rsi_oversold" placeholder ="30"/>
     </div> -->
 
+
+<div class="row" style="content: ';'; display: table; clear: both; padding-left: 25px;" >
+
+  <div class="column" style="float: left; width: 33.33%;" >
+
+    <div class="lcolumn">
+        <table>
+            <p style= "padding-left: 0px; color:#d41a1a">Symbols </p>
+            <br>
+            {% for balance in my_balances %}
+            <tr>
+                <td> 
+                    {{ balance['asset'] }}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+  </div>
+
+  <div class="column" style="float: left; width: 33.33%;">
+
+    <div class="lcolumn">
+        <table>
+            <p style= "padding-left: 10px; color:#d41a1a"> Current Holdings </p>
+            {% for balance in my_balances %}
+            <tr>
+                <td>
+                    {{balance['free']}}
+                </td>
+            </tr>
+            {% endfor %}
+            
+        </table>
+    </div>
+
+  </div>
+
+  <div class="column" style="float: left; width: 33.33%;">
+
+    <div class="lcolumn">
+        <table>
+            <p style= "padding-left: 10px; color:#d41a1a">Current Prices </p>
+            {% for price in prices %}
+            <tr>
+                <td>
+                    {{ price['price']}}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+  </div>
+
  <!-- accessing only revelant information from my binance balance and place it into a table-->
- <div class="lcolumn">
+ <!-- <div class="lcolumn">
     <table>
         <p style= "padding-left: 10px;">Symbols | Current Holdings</p>
         {% for balance in my_balances %}
@@ -260,21 +348,11 @@
         
         </tr>
         {% endfor %}
+        
     </table>
-</div>
+</div> -->
 
-<!-- <table>
-{% for price in prices %}
 
-<tr>
-    <td>
-        {{ price['price']}}
-    </td>
-</tr>
-{% endfor %}
-</table>
-
-<div>         -->
 
 <!-- End of accessing only revelant information from my binance balance and place it into a table-->
 

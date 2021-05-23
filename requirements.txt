@@ -1,12 +1,6 @@
-# libraries that make our current project work
-
-python-binance # Provides connection to Binance API
-flask # Web framework that allows us to build a web application with python 
-Bootstrap # Allow us to create a pretty interface
-
-# Tools for further development later
-
-websocket_client # Websocket client for python will utilize this to pull live feed from Binance
-TA-lib # Has over 100 trading indicators that we can call methods on by data through Csv file 
-numpy # Can be used to help us computate data from binance
-Flask_WTF # WT Forms provides a powerful way and more protective way to utilize forms for users on the interface
+python-binance 
+flask
+websocket_client 
+TA-lib 
+numpy 
+Flask_WTF

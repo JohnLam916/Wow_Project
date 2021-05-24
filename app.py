@@ -7,8 +7,7 @@ app.secret_key = "jsad;fk039u2401u90n3k;alkm092uqio234n92837498hwhofiuahsdf"
 # client = Client(config.api_key, config.api_secret, tld = 'us')
     
 if __name__ == "__main__":
-
-    app.run(debug=True)
+        app.run(debug=True) #This will allows us to not have to rerun flask each time we make a change, it will automatically update our code. We can just hit refresh on the page to see new changes.
 
 # Putting a parameter of debug=True in app.run() will automatically put our flask in debug mode and automatically update any changes we make to flask
     
@@ -27,8 +26,8 @@ def login():
         client = Client(key, secret, tld = 'us')
 
 # Testing whether the key and secret were retrieved
-        # print(client, flush=True)
-        # print(key, secret, flush=True)
+        print(client, flush=True)
+        print(key, secret, flush=True)
 
 # Retrieving client information from binance and parsing information to retrieve available balance
         exchange_info = client.get_exchange_info()
@@ -39,7 +38,7 @@ def login():
 # Parsing symbols from exchange info to retrieve only crypto currency symbols
         symbols = exchange_info['symbols']
 
-        prices = client.get_all_tickers()
+        prices = client.get_all_tickers()[ :len(balances)]
         current_prices = prices[0]['price']
         
         session["available_to_trade"] = available_to_trade
@@ -61,7 +60,6 @@ def login():
 # Route where our main page is located
 @app.route('/index', methods=["POST", "GET"])
 def index():
-
     return render_template('index.html')
 
 # Under construction
@@ -154,4 +152,8 @@ def sell():
 @app.route('/settings')
 def settings():
     return 'settings'
+
+@app.route('/history', methods=["POST", "GET"])
+def history():
+    return render_template('history.html')
 

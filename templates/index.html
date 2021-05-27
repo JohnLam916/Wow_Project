@@ -23,9 +23,342 @@
 <img src="https://images.unsplash.com/photo-1615818733733-8b2f0e3c403a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80" class="img-fluid" alt="Image of success">
 </div>
 
-<div style="content: ''; display: table; margin-left: auto; margin-right: auto; padding-bottom: 50px">
+<div style= "text-align: center;">
+    <h2 >
+        <b><em> How to use the charts </em></b>
+        <h4 style="text-align: center; color:	#0000CD;"><em>Live data are processed from Binance.us</em></h4>
 
-    <div style= "float: left; width: 33.33%;">
+    </h2>
+    
+    </div>
+    <br>
+    <ul style= "margin-left: 150px;">  
+       
+       <li> <b>Select:</b> Time interval you want to recieve data analysis: 1 min, 5 min, 15 min, 1 hour, 4 hours, 1 day, 1 week or 1 month  </li>
+       <li>
+       Once time interval is selected, data for that time period is processed through 26 different financial technical indicators to determine whether a particular crypto currency should be bought, sold or held.
+       </li>
+       <li>
+       The individual indicators are grouped into the three categories: sell, neutral or hold which will allow the investor to make an informed decision of what the majority of the indicators are saying.    
+       </li>
+
+    
+    </ul>
+
+<div style="content: ''; display: table; margin-left: auto; margin-right: auto; padding-bottom: 20px">
+
+    <div style= "float: left; width: 25%;">
+
+        <!-- TradingView Widget BEGIN -->
+
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com" rel="noopener" target="_blank"><span class="blue-text">Index Analysis</span></a> by JTC students</div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+        {
+        "colorTheme": "light",
+        "dateRange": "12M",
+        "showChart": true,
+        "locale": "en",
+        "largeChartUrl": "",
+        "isTransparent": false,
+        "showSymbolLogo": true,
+        "width": "400",
+        "height": "450",
+        "plotLineColorGrowing": "rgba(33, 150, 243, 1)",
+        "plotLineColorFalling": "rgba(33, 150, 243, 1)",
+        "gridLineColor": "rgba(240, 243, 250, 1)",
+        "scaleFontColor": "rgba(120, 123, 134, 1)",
+        "belowLineFillColorGrowing": "rgba(33, 150, 243, 0.12)",
+        "belowLineFillColorFalling": "rgba(33, 150, 243, 0.12)",
+        "symbolActiveColor": "rgba(33, 150, 243, 0.12)",
+        "tabs": [
+        {
+            "title": "Indices",
+            "symbols": [
+            {
+                "s": "FOREXCOM:SPXUSD",
+                "d": "S&P 500"
+            },
+            {
+                "s": "FOREXCOM:NSXUSD",
+                "d": "Nasdaq 100"
+            },
+            {
+                "s": "FOREXCOM:DJI",
+                "d": "Dow 30"
+            },
+            {
+                "s": "INDEX:NKY",
+                "d": "Nikkei 225"
+            },
+            {
+                "s": "INDEX:DEU30",
+                "d": "DAX Index"
+            },
+            {
+                "s": "FOREXCOM:UKXGBP",
+                "d": "UK 100"
+            }
+            ],
+            "originalTitle": "Indices"
+        },
+        {
+            "title": "Commodities",
+            "symbols": [
+            {
+                "s": "CME_MINI:ES1!",
+                "d": "S&P 500"
+            },
+            {
+                "s": "CME:6E1!",
+                "d": "Euro"
+            },
+            {
+                "s": "COMEX:GC1!",
+                "d": "Gold"
+            },
+            {
+                "s": "NYMEX:CL1!",
+                "d": "Crude Oil"
+            },
+            {
+                "s": "NYMEX:NG1!",
+                "d": "Natural Gas"
+            },
+            {
+                "s": "CBOT:ZC1!",
+                "d": "Corn"
+            }
+            ],
+            "originalTitle": "Commodities"
+        },
+        {
+            "title": "Bonds",
+            "symbols": [
+            {
+                "s": "CME:GE1!",
+                "d": "Eurodollar"
+            },
+            {
+                "s": "CBOT:ZB1!",
+                "d": "T-Bond"
+            },
+            {
+                "s": "CBOT:UB1!",
+                "d": "Ultra T-Bond"
+            },
+            {
+                "s": "EUREX:FGBL1!",
+                "d": "Euro Bund"
+            },
+            {
+                "s": "EUREX:FBTP1!",
+                "d": "Euro BTP"
+            },
+            {
+                "s": "EUREX:FGBM1!",
+                "d": "Euro BOBL"
+            }
+            ],
+            "originalTitle": "Bonds"
+        },
+        {
+            "title": "Forex",
+            "symbols": [
+            {
+                "s": "FX:EURUSD"
+            },
+            {
+                "s": "FX:GBPUSD"
+            },
+            {
+                "s": "FX:USDJPY"
+            },
+            {
+                "s": "FX:USDCHF"
+            },
+            {
+                "s": "FX:AUDUSD"
+            },
+            {
+                "s": "FX:USDCAD"
+            }
+            ],
+            "originalTitle": "Forex"
+        },
+        {
+            "title": "Crypto",
+            "symbols": [
+            {
+                "s": "BINANCE:BTCUSDT"
+            },
+            {
+                "s": "BINANCE:ETHUSDT"
+            },
+            {
+                "s": "BINANCE:XRPUSDT"
+            },
+            {
+                "s": "UNISWAP:WETHSMI"
+            },
+            {
+                "s": "BINANCE:DOGEUSDT"
+            },
+            {
+                "s": "KRAKEN:BCHUSDT"
+            },
+            {
+                "s": "KRAKEN:LTCUSDT"
+            },
+            {
+                "s": "KRAKEN:ADAUSDT"
+            },
+            {
+                "s": "BITBAY:XLMUSDT"
+            },
+            {
+                "s": "KUCOIN:BATUSDT"
+            },
+            {
+                "s": "COINBASE:ETCUSD"
+            },
+            {
+                "s": "HUOBI:ZRXUSDT"
+            },
+            {
+                "s": "BITKUB:BNBTHB"
+            },
+            {
+                "s": "BITBAY:LINKUSDT"
+            },
+            {
+                "s": "KRAKEN:REPXBT"
+            },
+            {
+                "s": "BINANCE:RVNUSDT"
+            },
+            {
+                "s": "BINANCE:DASHUSDT"
+            },
+            {
+                "s": "KUCOIN:ZECUSDT"
+            },
+            {
+                "s": "HUOBI:ALGOUSDT"
+            },
+            {
+                "s": "BINANCE:IOTAUSDT"
+            },
+            {
+                "s": "BINANCE:BUSDUSDT"
+            },
+            {
+                "s": "BINANCE:WAVESUSDT"
+            },
+            {
+                "s": "BINGBON:ATOMUSDT"
+            },
+            {
+                "s": "BINANCE:NEOUSDT"
+            },
+            {
+                "s": "BITFINEX:VETUSD"
+            },
+            {
+                "s": "BINANCE:QTUMUSDT"
+            },
+            {
+                "s": "BINANCE:NANOUSDT"
+            },
+            {
+                "s": "BINANCE:EOSUSDT"
+            },
+            {
+                "s": "KRAKEN:ICXUSD"
+            },
+            {
+                "s": "BINANCE:ENJUSDT"
+            },
+            {
+                "s": "BINANCE:ONTUSDT"
+            },
+            {
+                "s": "BINANCE:ZILUSDT"
+            },
+            {
+                "s": "KRAKEN:USDCUSDT"
+            },
+            {
+                "s": "BITBAY:XTZUSDT"
+            },
+            {
+                "s": "BINANCE:HBARUSDT_PREMIUM"
+            },
+            {
+                "s": "BITTREX:OMGUSDT"
+            },
+            {
+                "s": "BINANCE:MATICUSDT"
+            },
+            {
+                "s": "BINANCE:ONEUSDT"
+            },
+            {
+                "s": "BINANCE:VTHOUSDT"
+            },
+            {
+                "s": "KRAKEN:KNCUSD"
+            },
+            {
+                "s": "BINANCE:COMPUSDT"
+            },
+            {
+                "s": "KRAKEN:MANAUSD"
+            },
+            {
+                "s": "BINANCE:HNTUSDT"
+            },
+            {
+                "s": "BINANCE:MKRUSDT"
+            },
+            {
+                "s": "OKEX:DAIUSDT"
+            },
+            {
+                "s": "BINANCE:BANDUSDT"
+            },
+            {
+                "s": "BINANCE:STORJUSDT"
+            },
+            {
+                "s": "BINANCE:SOLUSDT"
+            },
+            {
+                "s": "BINANCE:UNIUSDT"
+            },
+            {
+                "s": "BINANCE:EGLDUSDT"
+            },
+            {
+                "s": "KRAKEN:PAXGUSD"
+            },
+            {
+                "s": "BINANCE:OXTUSDT"
+            },
+            {
+                "s": "BINANCE:ZENUSDT"
+            }
+            ]
+        }
+        ]
+    }
+        </script>
+    </div>
+    <!-- TradingView Widget END -->
+    </div>
+
+    <div style= "float: left; width: 25%;">
     <!-- TradingView Widget for Bitcoin BEGIN -->
         <div class="tradingview-widget-container">
             <div class="tradingview-widget-container__widget"></div>
@@ -46,7 +379,7 @@
     <!-- TradingView Widget for Bitcoin END -->
     </div>
 
-    <div style= "float: left; width: 33.33%;">
+    <div style= "float: left; width: 25%;">
         <!-- TradingView Widget for ETHUSDT BEGIN -->
         <div class="tradingview-widget-container">
             <div class="tradingview-widget-container__widget"></div>
@@ -67,7 +400,7 @@
         <!-- TradingView Widget for ETHUSDT END -->
     </div>
 
-    <div style= "float: left; width: 33.33%;">
+    <div style= "float: left; width: 25%;">
         <!-- TradingView Widget for Litecoin BEGIN -->
         <div class="tradingview-widget-container">
             <div class="tradingview-widget-container__widget"></div>
@@ -85,10 +418,14 @@
         }
             </script>
         </div>
+
         <!-- TradingView Widget for Litecoin END -->
+
     </div>
+
 </div>
 
+<br>
 <!-- Charts for later development that retrieves candle stick charts, this will be later used by python-binance websocket to retrieve data from binance API that can be processed through charts -->
 
 <!-- </div>
@@ -149,51 +486,93 @@
 
     </div> -->
 
-<div>
-    <h2 style = "color: #d41a1a; text-align: center;">Your current available balance is ${{ available_to_trade }} </h2>
-</div>
-
     <!-- Creating a form for selecting crypto currencies to purchase -->
+<div>
+    <div style="content: ''; display: table; margin-left: auto; margin-right: auto; padding-bottom: 25px; padding-top: 25px; border-style: double; width: 800px;  ">
 
-<div style="content: ''; display: table; margin-left: auto; margin-right: auto; padding-bottom: 25px; padding-top: 25px; border-style: double; width: 800px;  ">
-        
-    <div id = "selection">
-        <h2 id="h2">Buy and Sell your Crypto's Here</h2>
+        <div id = "selection">
+            <h2 id="h2">Buy and Sell your Crypto's Here</h2>
 
-        <form action="/buy" method="post">
+            <br>
 
-            Please select the Crypto you want to purchase:
-            {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                    {% for message in messages %}
-                        {{ message }}
-                        {% endfor %}
-                {% endif %}
-                {% endwith %}
+            <div>
+                <p style = "color: #361ad4; font-size: 20px; text-align: center;"><b>Your current available balance is ${{ available_to_trade }}</b></p>
+            </div>
 
-            <select id = "symbol" name="symbol">
+            <form action="/buy" method="post">
 
-                {% for symbol in symbols %}
-                        <option>{{symbol['symbol']}}</option>
-                {% endfor %}   
-            </select> 
-            
-                <!-- Creating a form to execute a purchase trade -->
+                Please select the Crypto you want to purchase:
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            {{ message }}
+                            {% endfor %}
+                    {% endif %}
+                    {% endwith %}
 
-            <input type="text" id="quantity" name= "quantity" placeholder= "eg. 0.001" />
-            <input type="submit" name="buy" value="buy" />
+                <select id = "symbol" name="symbol">
 
-            <!-- Creating a form to execute a purchase trade -->     
+                    {% for symbol in symbols %}
+                            <option>{{symbol['symbol']}}</option>
+                    {% endfor %}   
+                </select> 
+                
+                    <!-- Creating a form to execute a purchase trade -->
 
-        </form>  
+                <input type="text" id="quantity" name= "quantity" placeholder= "eg. 0.001" />
+                <input type="submit" name="buy" value="buy" />
+
+                <!-- Creating a form to execute a purchase trade -->     
+
+            </form>  
+
+        </div>
+
+            <!-- End of creating a form for selecting crypto currencies to purchase -->
+
+        <!-- Creating a form for selecting crypto currencies to sell -->
+
+        <div id = "selection">
+
+            <form action="/sell" method="post">
+
+                Please select the Crypto you want to Sell:
+
+        <!-- displays error message on the user interface, when an execution fails for one reason or another -->
+
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            {{ message }}
+                            {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+
+                <select id = "symbol" name="symbol">
+
+                    {% for symbol in symbols %}
+                            <option>{{symbol['symbol']}}</option>
+                    {% endfor %}  
+
+                </select> 
+
+                    <!-- Creating a form to execute a sell -->
+
+                <input type="text" id="quantity" name= "quantity" placeholder= "eg. 0.001" />
+                <input type="submit" name="sell" value="sell" />
+
+            </form>  
+
+        </div>
+
+            <!-- End of creating a form for selecting crypto currencies to purchase -->
 
     </div>
 
-        <!-- End of creating a form for selecting crypto currencies to purchase -->
-
+</div>
 <br>
 
-<p style="color: rgb(10, 110, 40); text-align:center"> <b><em>*Please note that there is minimum purchase of $20 to execute a trade*</em></b> </p>
+<p style="color: rgb(7, 131, 44); text-align:center"> <b><em>*Please note that there is minimum purchase of $20 to execute a trade*</em></b> </p>
 
 <script>
 
@@ -219,48 +598,7 @@
 
     </form>
 </div>
-<br>
 
-        <!-- Creating a form for selecting crypto currencies to sell -->
-
-    <div id = "selection">
-
-        <form action="/sell" method="post">
-
-            Please select the Crypto you want to Sell:
-
-    <!-- displays error message on the user interface, when an execution fails for one reason or another -->
-
-            {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                    {% for message in messages %}
-                        {{ message }}
-                        {% endfor %}
-                {% endif %}
-                {% endwith %}
-
-            <select id = "symbol" name="symbol">
-
-                {% for symbol in symbols %}
-                        <option>{{symbol['symbol']}}</option>
-                {% endfor %}  
-
-            </select> 
-
-                <!-- Creating a form to execute a sell -->
-
-            <input type="text" id="quantity" name= "quantity" placeholder= "eg. 0.001" />
-            <input type="submit" name="sell" value="sell" />
-
-        </form>  
-
-    </div>
-
-        <!-- End of creating a form for selecting crypto currencies to purchase -->
-
-</div>
-
-<br>
 <br>
     <!-- Form to allow user to set parameters for technial indicator Relative Strength Index, which gives information to the bot to execute a trade based on the parameters -->
     
@@ -284,7 +622,7 @@
 
     <div class="lcolumn">
         <table>
-            <p style= "padding-left: 0px; color:#d41a1a">Symbols </p>
+            <p style= "padding-left: 0px; color:#d41a1a; font-weight:bold">Symbols </p>
             <br>
             {% for balance in my_balances %}
             <tr>
@@ -302,7 +640,7 @@
 
     <div class="lcolumn">
         <table>
-            <p style= "padding-left: 10px; color:#d41a1a"> Current Holdings </p>
+            <p style= "padding-left: 10px; color:#d41a1a; font-weight:bold"> Current Holdings </p>
             {% for balance in my_balances %}
             <tr>
                 <td>
@@ -320,7 +658,7 @@
 
     <div class="lcolumn">
         <table>
-            <p style= "padding-left: 10px; color:#d41a1a">Current Prices </p>
+            <p style= "padding-left: 10px; color:#d41a1a; font-weight:bold">Current Prices </p>
             {% for price in prices %}
             <tr>
                 <td>
@@ -330,7 +668,7 @@
             {% endfor %}
         </table>
     </div>
-
+    
   </div>
 
  <!-- accessing only revelant information from my binance balance and place it into a table-->
@@ -351,7 +689,6 @@
         
     </table>
 </div> -->
-
 
 
 <!-- End of accessing only revelant information from my binance balance and place it into a table-->

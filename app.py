@@ -36,8 +36,8 @@ def login():
         available_to_trade = info['balances'][2]['free']
 
 # Parsing symbols from exchange info to retrieve only crypto currency symbols
-        symbols = exchange_info['symbols']
 
+        symbols = exchange_info['symbols']
         prices = client.get_all_tickers()[ :len(balances)]
         current_prices = prices[0]['price']
         

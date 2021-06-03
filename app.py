@@ -26,8 +26,9 @@ def login():
         client = Client(key, secret, tld = 'us')
 
 # Testing whether the key and secret were retrieved
-        print(client, flush=True)
-        print(key, secret, flush=True)
+        # print(client, flush=True)
+        # print(key, secret, flush=True)
+        # print(session["key"], session["secret"])
 
 # Retrieving client information from binance and parsing information to retrieve available balance
         exchange_info = client.get_exchange_info()
@@ -66,49 +67,60 @@ def index():
 @app.route("/logout")
 def logout():
     session.pop("key", None)
+    session.pop("secret", None)
     return redirect(url_for("login"))
 
 # Route where our Binance buy method is housed
 @app.route('/buy', methods=["POST","GET"])
 def buy():
 
+        
         # If a Post request was submitted through the buy form the following will code the Buy operation
         if request.method == "POST":
+
+                # Utilizing session to make key accessible to the buy route, to enable user to make a trade via binance
+                # key = session["api_key"]
+                # secret = session["api_secret"]
+                # client = Client(session["api_key"], session["api_secret"], tld = 'us')
+
+                # print(session["api_key"],session["api_secret"])
+
+                api_key = "nSlr9x4X9DuvXOmdTKKcfMc4CPjeaTa0expkYAY7ZwSVno5GC31CFtbOMNX4g900"
+                api_secret = "jPgsSS1L6McMrvbHHzOc7gifTzT7VS1jLDJ0PNWY2xVDsGmNi4FzMz6SsYbaonpQ"
+
+                client = Client(api_key, api_secret, tld = "us")
+
                 try:
-                
-                        # Utilizing session to make key accessible to the buy route, to enable user to make a trade via binance
-                        key = session["key"]
-                        secret = session["secret"]
-                        client = Client(key, secret, tld = 'us')
-                        
+                        # print(session["api_key"],session["api_secret"])
                         # Function to make an trade 
-                        order = client.create_order(symbol=request.form['symbol'],
+                        order = client.create_order(symbol="ETHUSD",
                         side=SIDE_BUY,
                         type=ORDER_TYPE_MARKET,
-                        quantity= float(request.form['quantity']))
+                        quantity= float(.01))
 
-                        #Connecting to user's binance account to retrieve information about account balances 
-                        exchange_info = client.get_exchange_info()
-                        info = client.get_account()
-                        balances = info['balances']
-                        available_to_trade = info['balances'][2]['free']
-
-                        # Retrieve which symbol is selected for buying
-                        symbols = exchange_info['symbols']
-
-                        # Displays the current prices of Crypto currencies
-                        prices = client.get_all_tickers()
-                
                 except Exception as e:
                         flash(e.message, "error")
 
+                #Connecting to user's binance account to retrieve information about account balances 
+                exchange_info = client.get_exchange_info()
+                info = client.get_account()
+                balances = info['balances']
+                available_to_trade = info['balances'][2]['free']
+
+                # Retrieve which symbol is selected for buying
+                symbols = exchange_info['symbols']
+
+                # Displays the current prices of Crypto currencies
+                prices = client.get_all_tickers()
+
                 # Once the order executes, the page refreshes and updates the available balance to trade, current holdings, and prices of crypto currencies
+
                 return render_template('index.html', my_balances=balances, available_to_trade=available_to_trade, 
                 prices=prices, symbols=symbols)     
         else: 
                 # If a trade has not been successfully executed the user is returned the same page
-                return render_template("login.html")  
-        
+                return render_template("login.html") 
+
 # Route where our Binance sell method is housed
 @app.route('/sell', methods=["POST","GET"])
 def sell():
@@ -116,10 +128,10 @@ def sell():
         # If a Post request was submitted through the sell form the following will code will execute
         if request.method == "POST":
 
-                # Utilizing session to make key accessible to the sell route, to enable user to make a trade via binance
-                key = session["key"]
-                secret = session["secret"]
-                client = Client(key, secret, tld = 'us')
+                api_key = "nSlr9x4X9DuvXOmdTKKcfMc4CPjeaTa0expkYAY7ZwSVno5GC31CFtbOMNX4g900"
+                api_secret = "jPgsSS1L6McMrvbHHzOc7gifTzT7VS1jLDJ0PNWY2xVDsGmNi4FzMz6SsYbaonpQ"
+
+                client = Client(api_key, api_secret, tld = "us")
                 
                 # Function to make a sell 
                 order = client.create_order(symbol=request.form['symbol'],
@@ -131,7 +143,7 @@ def sell():
                 exchange_info = client.get_exchange_info()
                 info = client.get_account()
                 
-                balances = info['balances']
+                sell_balances = info['balances']
                 available_to_trade = info['balances'][2]['free']
                 symbols = exchange_info['symbols']
 
@@ -142,7 +154,7 @@ def sell():
                 # print(request.form)
 
                 # Once the order executes, the page refreshes and updates the available balance to trade, current holdings, and prices of crypto currencies
-                return render_template('index.html', my_balances=balances, available_to_trade=available_to_trade, prices=prices, symbols=symbols)       
+                return render_template('index.html', my_balances=sell_balances, available_to_trade=available_to_trade, prices=prices, symbols=symbols)       
 
         else: 
                 # If a trade is unsuccessful it refreshes back to the same page

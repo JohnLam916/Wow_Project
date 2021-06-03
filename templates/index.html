@@ -505,13 +505,13 @@
             <form action="/buy" method="post">
 
                 Please select the Crypto you want to purchase:
-                {% with messages = get_flashed_messages() %}
+                <!-- {% with messages = get_flashed_messages() %}
                     {% if messages %}
                         {% for message in messages %}
                             {{ message }}
                             {% endfor %}
                     {% endif %}
-                    {% endwith %}
+                    {% endwith %} -->
 
                 <select id = "symbol" name="symbol">
 
@@ -543,13 +543,13 @@
 
         <!-- displays error message on the user interface, when an execution fails for one reason or another -->
 
-                {% with messages = get_flashed_messages() %}
+                <!-- {% with messages = get_flashed_messages() %}
                     {% if messages %}
                         {% for message in messages %}
                             {{ message }}
                             {% endfor %}
                     {% endif %}
-                    {% endwith %}
+                    {% endwith %} -->
 
                 <select id = "symbol" name="symbol">
 

@@ -85,8 +85,8 @@ def buy():
 
                 # print(session["api_key"],session["api_secret"])
 
-                api_key = "nSlr9x4X9DuvXOmdTKKcfMc4CPjeaTa0expkYAY7ZwSVno5GC31CFtbOMNX4g900"
-                api_secret = "jPgsSS1L6McMrvbHHzOc7gifTzT7VS1jLDJ0PNWY2xVDsGmNi4FzMz6SsYbaonpQ"
+                api_key = "nSlr9x4X9DuvXOmdTKKcfMc4CPjeaTa0expkYAY7ZwSVno5GC31CFtbOMN"
+                api_secret = "jPgsSS1L6McMrvbHHzOc7gifTzT7VS1jLDJ0PNWY2xVDsGmNi4FzMz6SsYb"
 
                 client = Client(api_key, api_secret, tld = "us")
 
@@ -128,8 +128,8 @@ def sell():
         # If a Post request was submitted through the sell form the following will code will execute
         if request.method == "POST":
 
-                api_key = "nSlr9x4X9DuvXOmdTKKcfMc4CPjeaTa0expkYAY7ZwSVno5GC31CFtbOMNX4g900"
-                api_secret = "jPgsSS1L6McMrvbHHzOc7gifTzT7VS1jLDJ0PNWY2xVDsGmNi4FzMz6SsYbaonpQ"
+                api_key = "nSlr9x4X9DuvXOmdTKKcfMc4CPjeaTa0expkYAY7ZwSVno5GC31CFtbOMNX"
+                api_secret = "jPgsSS1L6McMrvbHHzOc7gifTzT7VS1jLDJ0PNWY2xVDsGmNi4FzMz6SsYba"
 
                 client = Client(api_key, api_secret, tld = "us")
                 
